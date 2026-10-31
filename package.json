@@ -1,0 +1,8 @@
+{
+  "name": "arb-bot",
+  "version": "1.0.0",
+  "private": true,
+  "main": "app.js",
+  "scripts": { "start": "node app.js", "check": "node check.js" },
+  "dependencies": { "ethers": "5.7.2" }
+}
