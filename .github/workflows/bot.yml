@@ -2,7 +2,7 @@ name: arb-bot
 
 on:
   schedule:
-    - cron: "0 */3 * * *"        # tiap 3 jam
+    - cron: "0 */12 * * *"       # 2x sehari
   workflow_dispatch:
     inputs:
       test:
@@ -18,7 +18,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 65
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -30,7 +30,7 @@ jobs:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           DRY_RUN: ${{ inputs.test && '1' || '' }}
           DEBUG: ${{ inputs.test && '1' || '' }}
-          DURATION: ${{ inputs.test && '5m' || '58m' }}
+          DURATION: ${{ inputs.test && '5m' || '28m' }}
         run: |
           set +e
           timeout --signal=SIGTERM "$DURATION" node app.js
