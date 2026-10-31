@@ -2,7 +2,7 @@ name: arb-bot
 
 on:
   schedule:
-    - cron: "0 * * * *"          # tiap jam
+    - cron: "0 */3 * * *"        # tiap 3 jam
   workflow_dispatch:
     inputs:
       test:
